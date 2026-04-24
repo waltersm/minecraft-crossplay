@@ -104,3 +104,18 @@ docker-compose up -d
 1. Docker will download the Java environment and PaperMC server files.
 2. It will dynamically download Geyser, Floodgate, ViaVersion, and ViaBackwards.
 3. It will generate your world, apply your memory limits, and open the ports for both Java and Bedrock players.
+
+### Step 6: Connecting from a Nintendo Switch (or other Consoles)
+By default, console versions of Minecraft do not allow you to add custom server IPs. To join your new server from a Nintendo Switch, you will need to use a DNS workaround (like BedrockConnect):
+
+1. On your Switch, go to **System Settings** -> **Internet** -> **Internet Settings**.
+2. Select your current Wi-Fi network and choose **Change Settings**.
+3. Scroll down to **DNS Settings** and change it from **Automatic** to **Manual**.
+4. Set the **Primary DNS** to `104.238.130.180`.
+5. Set the **Secondary DNS** to `8.8.8.8` (Google) or `1.1.1.1` (Cloudflare).
+6. Save the settings and connect to the network.
+7. Open Minecraft and go to the **Servers** tab.
+8. Try to join any of the pre-approved "Featured Servers" (like *The Hive* or *Mineville*).
+9. Instead of joining that server, a custom menu will appear! From here, choose **Connect to a Server**, and enter your server's IP address and the Bedrock port (`19132`).
+
+*Note: When you are done playing on your custom server, you may want to revert your DNS Settings back to Automatic to ensure normal internet functionality for other games.*
