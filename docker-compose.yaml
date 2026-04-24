@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  mc-crossplay:
+    image: itzg/minecraft-server:latest
+    container_name: mc-crossplay
+    environment:
+      EULA: "TRUE"
+      TYPE: "PAPER"
+      # Pin to your exact Java client version to avoid mismatches (e.g., "1.21.4")
+      VERSION: "1.21.4"
+      # Increase memory allocation; default 1GB is usually insufficient for Geyser + Via plugins
+      MEMORY: "4G"
+      # Disabling secure profiles is required for Bedrock players to join via Floodgate
+      ENFORCE_SECURE_PROFILE: "false" 
+      # Allows version mismatches between newer Bedrock clients and the Java server
+      MODRINTH_PROJECTS: "viaversion,viabackwards"
+      # Automatically download the latest Geyser and Floodgate plugins
+      PLUGINS: |
+        https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
+        https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
+    ports:
+      - "25565:25565/tcp"  # Java Edition Port
+      - "19132:19132/udp"  # Bedrock Edition Port
+    volumes:
+      - ./server-data:/data
+    restart: unless-stopped

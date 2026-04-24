@@ -1,0 +1,25 @@
+# Ignore environment variables (if you ever add secrets)
+.env
+server-data/*.env
+
+# Ignore generated world data
+server-data/world/
+server-data/world_nether/
+server-data/world_the_end/
+
+# Ignore logs and crash reports
+server-data/logs/
+server-data/crash-reports/
+
+# Ignore server binaries and cache
+server-data/*.jar
+server-data/cache/
+server-data/libraries/
+server-data/versions/
+
+# Ignore temporary/runtime plugin data and databases
+server-data/plugins/spark/tmp/
+server-data/plugins/spark/tmp-client/
+*.db
+*.sqlite
+*.sqlite-journal
